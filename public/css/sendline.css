@@ -1,0 +1,43 @@
+/*.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}*/
+
+.notextline {
+	position:relative;
+	animation:notextline .5s;
+	-webkit-animation:notextline .5s;
+	box-shadow:0 0 5px 1px #f43841 !important;
+}
+
+	@keyframes notextline
+	{
+	0%   {left:8px;}
+	10%  {left:-8px;}
+	30%  {left:8px;}
+	60%  {left:-8px;}
+	100% {left:0px;}
+	}
+
+	@-webkit-keyframes notextline /* Safari and Chrome */
+	{
+	0%   {left:8px;}
+	10%  {left:-8px;}
+	30%  {left:8px;}
+	60%  {left:-8px;}
+	100% {left:0px;}
+	}
