@@ -17,7 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css" rel="stylesheet">
     <link href="css/tarabuster.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link rel="stylesheet" href="sendline/sendline.css">
+    <link rel="stylesheet" href="css/sendline.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,600i&amp;subset=cyrillic" rel="stylesheet">
 
     <link rel="shortcut icon" href="favicon.png" type="image/png">
@@ -94,7 +94,6 @@
 
 	        <div class="row">
 	        	<div class="certa-image-block animated fadeInRight">
-	            	<img src="img/.jpg" alt="" title="" class="offer-img certa-image">
 	            </div>
 	            <div class="main-intro col-md-8 col-md-offset-1 text-left animated fadeInLeft">
 	                <h1>Дезинсекция, дезинфекция, дератизация</h1>
@@ -108,7 +107,7 @@
 	                    <li><small>Исполнители лицензированы, санитарные нормы исполняются, гарантия на все услуги — 1 год.</small></li>
 	                </ul>
 					<div class="block-xs-center">
-	            		<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+	            		<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 	            	</div>
 	            </div>
 	        </div>
@@ -163,7 +162,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -211,7 +210,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -265,7 +264,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -314,7 +313,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -362,7 +361,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -414,7 +413,7 @@
 						</tr>
 					</table>
 
-					<a href="tel:+78005511706" onclick="yaCounter37539440.reachGoal('phone'); return true;"><button class="btn btn-lg">Бесплатный звонок</button></a>
+					<button onclick="yaCounter37539440.reachGoal('leave_a_request'); return true;" class="btn btn-lg" data-toggle="modal" data-target="#contactform">Оставить заявку</button>
 				</div>
 			</div>
 
@@ -442,12 +441,55 @@
 		</div>
 	</footer>
 
+<div class="modal fade linemodal" id="contactform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content formline" formname="Кнопка с заманухой">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Оставьте контактные данные</h4>
+      </div>
+
+      <div class="modal-body">
+		<p>
+			Мы перезвоним, уточним детали заказа и договоримся насчёт даты и времени.
+		</p>
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="form-group">
+					<input class="form-control inputline" type="text" name="name" linename="Ф.И.О" linereq=1 placeholder="Как к вам обращаться?">
+				</div>
+
+				<div class="form-group">
+					<input class="form-control inputline" type="text" name="phone" linename="Телефон" linereq=1 placeholder="Телефон">
+				</div>
+			</div>
+		</div>
+		<div>
+			<p><small>Уничтожение насекомых&nbsp;— комплексная процедура.
+			Сложность зависит от&nbsp;площади и&nbsp;возраста жилища, отделки, видов мебели, наличия детей и&nbsp;домашних животных.
+			Мы&nbsp;проконсультируем и&nbsp;ответим на&nbsp;вопросы, не&nbsp;переживайте.
+			Работаем каждый день c&nbsp;8:00 до&nbsp;20:00 и&nbsp;перезвоним в&nbsp;рабочее время.</small></p>
+		</div>
+      </div>
+
+      <div class="modal-footer">
+        <button onsubmit="yaCounter37539440.reachGoal('send_request'); return true;" type="button" class="btn btn-lg linebutton">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- jQuery Version 1.11.1 -->
 <script src="js/jquery.js"></script>
 
 <script src="js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 <script src="js/navigator.js"></script>
+
+<script src="js/bootbox.min.js"></script>
+<script src="js/jsline.js"></script>
 
 <!-- Zadarma widget -->
 <script type="text/javascript">
