@@ -1,0 +1,119 @@
+---
+- hosts: all
+  gather_facts: no
+  vars_prompt:
+     - name: "tarabuster_image_tag"
+       prompt: "tarabuster image tag"
+       private: no
+  tasks:
+    - set_fact: tarabuster_image_tag={{ tarabuster_image_tag }}
+      tags: always
+
+    # - local_action:
+    #     module: slack
+    #     domain: tarabuster.slack.com
+    #     token: "{{ vault_slack_token }}"
+    #     msg: "tarabuster deploy started: {{ deploy_env }}:{{ tarabuster_image_tag }}"
+    #     channel: "#operation"
+    #     username: "{{ tarabuster_run_user }}"
+    #   run_once: yes
+
+- hosts: appservers
+  gather_facts: no
+  tasks:
+
+    - docker_image:
+        name: "{{ tarabuster_app_image_name }}:{{ tarabuster_image_tag }}"
+      become: yes
+      become_user: "{{ tarabuster_run_user }}"
+
+    - name: update tarabuster version
+      become: yes
+      lineinfile:
+        regexp: "tarabuster_VERSION"
+        line: "tarabuster_VERSION={{ tarabuster_image_tag }}"
+        dest: /etc/environment
+        backup: yes
+        state: present
+
+        #    - docker_container:
+        #        networks:
+        #          - name: "{{ tarabuster_docker_network }}"
+        #        name: tarabuster-migrations
+        #        image: "{{ tarabuster_app_image_name }}:{{ tarabuster_image_tag }}"
+        #        #log_driver: none #awslogs
+        #        #log_options:
+        #        #  awslogs-group: tarabuster-staging
+        #        #  awslogs-stream: tarabuster-web
+        #        #  awslogs-region: '{{ tarabuster_aws_region }}'
+        #        command: "bin/rails db:migrate"
+        #        env_file: "{{ tarabuster_user_home }}/.env"
+        #      tags: [webserver]
+
+
+    # - shell: "docker run --rm --env-file {{ tarabuster_user_home }}/.env {{ tarabuster_app_image_name }}:{{ tarabuster_image_tag }} bin/rails db:migrate"
+    #   run_once: yes
+    #   become: yes
+    #   become_user: "{{ tarabuster_run_user }}"
+    #   tags: [migration]
+
+- hosts: webservers
+  gather_facts: no
+  become: yes
+  become_user: "{{ tarabuster_run_user }}"
+
+  tasks:
+
+    - docker_image:
+        name: "{{ tarabuster_nginx_image_name }}"
+      become: yes
+      become_user: "{{ tarabuster_run_user }}"
+      tags: [webserver]
+
+    - docker_container:
+        networks:
+          - name: "{{ tarabuster_docker_network }}"
+        recreate: yes
+        name: tarabuster-nginx
+        image: "{{ tarabuster_nginx_image_name }}"
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
+          - "443:443"
+      tags: [webserver]
+
+    - docker_container:
+        networks:
+          - name: "{{ tarabuster_docker_network }}"
+        recreate: yes
+        name: tarabuster-web
+        image: "{{ tarabuster_app_image_name }}:{{ tarabuster_image_tag }}"
+        # memory: 800m
+        state: started
+        #log_driver: awslogs
+        #log_options:
+        #  awslogs-group: tarabuster-staging
+        #  awslogs-stream: tarabuster-web
+        #  awslogs-region: '{{ tarabuster_aws_region }}'
+        restart_policy: always
+        command: "bundle exec puma -e production"
+        env_file: "{{ tarabuster_user_home }}/.env"
+        ports:
+          - "9292:9292"
+        volumes:
+          - "/tmp:/tmp"
+          - "/var/tmp:/var/tmp"
+      tags: [webserver]
+
+# - hosts: all
+#   gather_facts: no
+#   tasks:
+
+    # - name: "Send deploy hook to Appsignal"
+    #   local_action: shell curl https://api.rollbar.com/api/1/deploy/ \
+    #       -F access_token="{{ vault_rollbar_backend_token }}" \
+    #       -F environment="{{ rails_env }}" \
+    #       -F revision="{{ tarabuster_image_tag }}" \
+    #       -F local_username="{{ tarabuster_run_user }}"
+    #   run_once: yes

@@ -1,0 +1,28 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    tarabuster_build_dest: /var/tmp/tarabuster
+    accept_hostkey: yes
+  vars_prompt:
+    - name: "tarabuster_image_tag"
+      prompt: "tarabuster image tag"
+      private: no
+  tasks:
+    - git:
+        repo: 'git@github.com:Nitr/tarabaster-lending.git'
+        dest: "{{ tarabuster_build_dest }}"
+        version: "{{ tarabuster_image_tag }}"
+      become: yes
+      become_user: "{{ tarabuster_run_user }}"
+      tags: always
+
+    - docker_image:
+        path: "{{ tarabuster_build_dest }}/services/nginx"
+        name: "{{ tarabuster_nginx_image_name }}"
+        force: yes
+        tag: latest
+        push: yes
+      become: yes
+      become_user: "{{ tarabuster_run_user }}"
+      tags: [nginx]

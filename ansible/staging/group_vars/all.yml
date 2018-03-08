@@ -1,0 +1,11 @@
+---
+
+tarabuster_app_image_name: "{{ tarabuster_docker_registry }}/tarabuster-app"
+tarabuster_nginx_image_name: "{{ tarabuster_docker_registry }}/tarabuster-nginx"
+
+tarabuster_db_host: "db"
+tarabuster_db_name: "stagingdatabase"
+tarabuster_db_username: "tarabuster"
+tarabuster_db_password: "tarabuster"
+tarabuster_rails_env: "staging"
+tarabuster_rails_secret_key_base: "0da2ab7586f44a6ddfe7cce714c27f1b214d654ede4298e5b0151802887a0c14ba97c5a1e8ecc643040855f9717eb193d34da4eca5a22e14b3bcb6d67ec16175"

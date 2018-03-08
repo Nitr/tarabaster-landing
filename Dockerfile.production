@@ -1,0 +1,32 @@
+FROM ruby:2.4
+
+ENV PG_MAJOR 10
+
+WORKDIR /usr/src/app/
+
+ENV BUNDLE_BIN /usr/src/app/vendor/bundle
+ENV BUNDLE_PATH /usr/src/app/vendor/bundle
+ENV BUNDLE_APP_CONFIG /usr/src/app/vendor/bundle
+ENV GEM_HOME /usr/src/app/vendor/bundle
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' $PG_MAJOR > /etc/apt/sources.list.d/pgdg.list
+
+RUN apt-get update -qqy && apt-get -qqyy install \
+    nodejs \
+    yarn \
+    postgresql-client-$PG_MAJOR \
+    libgmp3-dev \
+    ruby-dev \
+    pkg-config \
+  && rm -rf /var/lib/apt/lists/*
+
+
+COPY Gemfile .
+COPY Gemfile.lock .
+RUN bundle install --path vendor/bundle --without development test
+
+COPY . .

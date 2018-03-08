@@ -1,0 +1,8 @@
+---
+
+- template:
+    src: environment.j2
+    dest: '{{ tarabuster_env_file }}'
+    owner: '{{ tarabuster_run_user }}'
+    mode: 0775
+  tags: [env]

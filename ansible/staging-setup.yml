@@ -1,0 +1,69 @@
+---
+
+- hosts: all
+
+  pre_tasks:
+
+    - block:
+      - name: generate locale
+        locale_gen: name=en_US.UTF-8 state=present
+        tags: [locale]
+
+      - name: set locale
+        become: yes
+        shell: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+        tags: [locale]
+
+        # - apt:
+        # name: "{{ item }}"
+        # state: latest
+        # update_cache: yes
+        # become: yes
+        # with_items:
+        # - python3-pip
+
+    - pip:
+        name: docker-py
+
+  tasks:
+
+    - name: "Add '{{ tarabuster_run_user }}' user to 'docker' group."
+      become: yes
+      user:
+        name: "{{ tarabuster_run_user }}"
+        groups:
+          - docker
+        append: yes
+
+    - name: Take the newly added 'docker' group into account
+      meta: reset_connection
+
+    - docker_network:
+        name: "{{ tarabuster_docker_network }}"
+
+  roles:
+    - { name: "geerlingguy.docker", become: yes }
+
+- hosts: appservers
+
+  roles:
+    - environment
+
+      # - hosts: dbservers
+      #   gather_facts: no
+      #
+      #   tasks:
+      #
+      #     - docker_container:
+      #         networks:
+      #           - name: "{{ tarabuster_docker_network }}"
+      #         # recreate: yes
+      #         name: db
+      #         env:
+      #           POSTGRES_DB: "{{ tarabuster_db_name }}"
+      #           POSTGRES_USER: "{{ tarabuster_db_username }}"
+      #           POSTGRES_PASSWORD: "{{ tarabuster_db_password }}"
+      #         image: postgres
+      #         state: started
+      #         restart_policy: always
+      #       tags: [db]

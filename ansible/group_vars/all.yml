@@ -1,0 +1,10 @@
+ansible_python_interpreter: /usr/bin/python3
+
+tarabuster_docker_registry: localhost:5000
+tarabuster_run_user: ubuntu
+tarabuster_user_home: "/home/{{ tarabuster_run_user }}"
+tarabuster_env_file: "{{ tarabuster_user_home }}/.env"
+
+tarabuster_docker_network: "tarabuster"
+
+docker_install_compose: false

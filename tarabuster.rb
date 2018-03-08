@@ -1,7 +1,5 @@
 require 'sinatra'
-require 'mailgun'
-# require 'byebug'
-require 'json'
+require 'sinatra/reloader' if development?
 
 get '/' do
   erb :index
