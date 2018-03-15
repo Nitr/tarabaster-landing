@@ -12,26 +12,26 @@
   padding-left: 10px;
   padding: 10px;
 }
- 
+
 .col-xs-1-5 {
   width: 20%;
   float: left;
 }
- 
+
 @media (min-width: 768px) {
   .col-sm-1-5 {
     width: 20%;
     float: left;
   }
 }
- 
+
 @media (min-width: 992px) {
   .col-md-1-5 {
     width: 20%;
     float: left;
   }
 }
- 
+
 @media (min-width: 1200px) {
   .col-lg-1-5 {
     width: 20%;
@@ -79,11 +79,11 @@ a:focus {
 }
 strong{font-weight:600}
 
-.subtitle {	
+.subtitle {
     font-weight: 300;
     font-size: 85%;
 	font-style:italic;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
 }
 .mb10 {margin-bottom: 10px;}
 .mb20 {margin-bottom: 20px;}
@@ -155,12 +155,12 @@ strong{font-weight:600}
 .navbar-nav {
 	float: right;
 }
-.navbar-nav>li>a {	
+.navbar-nav>li>a {
 	font-weight: 700;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 15px;
 	color: #fff;
-	padding: 15px 15px;	
+	padding: 15px 15px;
 }
 .nav>li>a:focus, .nav>li>a:hover {
 	background-color: #fff;
@@ -185,7 +185,7 @@ strong{font-weight:600}
 }
 img.main-logo-min {
 	width: 35px;
-    margin-top: -8px;    
+    margin-top: -8px;
   	transition: width 0.2s, margin 0.2s;
 }
 
@@ -251,7 +251,10 @@ ul.ulmain-block{
     color: #fff;
     max-width: 100%;
     white-space: normal;
-    background-color: #337ab7
+    background-color: #337ab7;
+}
+.btn-danger {
+  background-color: red;
 }
 .cat-block  .btn{margin-left:-2px;margin-bottom:20px}
 .main-block .btn:hover, .cat-block  .btn:hover, .formline .modal-footer .btn:hover{
@@ -264,7 +267,7 @@ ul.ulmain-block{
 .main-image-block img {
 	position: absolute;
 	top: 40px;
-	right: 0;	
+	right: 0;
 	height: 600px;
 	width: auto;
 }
@@ -315,9 +318,9 @@ ul.ulmain-block{
 }
 .certa-icon {
     width: 66px;
-    height: 66px;    
+    height: 66px;
     display: inline-block;
-    background-color: #61c100;    
+    background-color: #61c100;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 20px 0;
@@ -385,7 +388,7 @@ ul.ulmain-block{
 /* активная вкладка */
 .tabs li.active {
     background:#fdfdfd;
-    color:#4F5559; 
+    color:#4F5559;
 }
 /* блоки вкладок с содержанием */
 .box {
@@ -444,15 +447,15 @@ ul.ulmain-block{
     color: #FFF;
     position: absolute;
     bottom: 0;
-    left: 0;    
+    left: 0;
     width: 100%;
     line-height: 1.2;
     z-index: 100;
     padding: 50px 10px 10px 10px;
-    opacity: 0;    
+    opacity: 0;
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;    
+    transition: opacity 0.2s ease-in-out;
 
 	background: -moz-linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 48%, rgba(0,0,0,1) 100%); /* ff3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(48%, rgba(0,0,0,0.55)), color-stop(100%, rgba(0,0,0,1))); /* safari4+,chrome */
@@ -484,7 +487,7 @@ ul.ulmain-block{
 
 /* ----------------- */
 .hide {
-    display: none; 
+    display: none;
 }
 .hide + label ~ div{
     display: none;
@@ -560,8 +563,8 @@ ul.ulmain-block{
 /* ----------------- */
 
 
-.form-block {	
-	background-image: url(../img/bottomfon.jpg);	
+.form-block {
+	background-image: url(../img/bottomfon.jpg);
 	background-size: cover;
 	color: #fff;
 	min-height: 500px;
@@ -573,7 +576,7 @@ ul.ulmain-block{
 	margin-top: 40px;
 }
 .form-panel {
-	margin-top: 20px;	
+	margin-top: 20px;
 	padding: 30px 20px 20px;
 	border-radius: 4px;
 	background-color: rgba(0, 0, 0, 0.3);
@@ -655,11 +658,11 @@ ul.ulmain-block{
 		height: auto;
 		right: 0;
 		top:0
-		
+
 	}
 	.main-image-block .color-image {
 		display: none;
-	}	
+	}
 	.ulmain-block {
 		text-align: center;
 	}

@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'mailgun'
+
 
 get '/' do
   erb :index
