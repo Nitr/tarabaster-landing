@@ -1,0 +1,57 @@
+doctype html
+html lang="ru"
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    meta content="" name="description" /
+    title Дезинсекция, дезинфекция и дератизация в Москве и Московской области
+    meta content="Уничтожение насекомых и грызунов в квартирах, загородных домах, офисах и земельных участках." name="description" /
+    link href="css/bootstrap.min.css" rel="stylesheet" /
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" /
+    link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css" rel="stylesheet" /
+    link href="css/tarabuster.css" rel="stylesheet" /
+    link href="css/animate.css" rel="stylesheet" /
+    link href="sendline/sendline.css" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,600i&subset=cyrillic" rel="stylesheet" /
+    javascript:
+      (window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-228892-h7yO9';
+    link href="favicon.png" rel="shortcut icon" type="image/png" /
+    /! HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    /! WARNING: Respond.js doesn't work if you view the page via file://
+    /![if lt IE 9]
+      | <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script
+      | <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script
+  body
+    == slim :header
+
+    == yield
+
+    == slim :'blocks/apartments'
+    == slim :'blocks/cottages'
+    == slim :'blocks/hostels'
+    == slim :'blocks/cabins'
+    == slim :'blocks/office'
+    == slim :'blocks/suburbans'
+
+    == slim :footer
+
+    == slim :'forms/form_1'
+    == slim :'forms/form_2'
+    == slim :'forms/form_3'
+    == slim :'forms/form_4'
+    == slim :'forms/form_5'
+    == slim :'forms/form_6'
+    == slim :'forms/form_7'
+
+    /! jQuery Version 1.11.1
+    script src="js/jquery.js"
+    script src="js/bootstrap.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"
+    script src="js/navigator.js"
+    script src="sendline/bootbox.min.js"
+    script src="sendline/jsline.js"
+    == slim :'services/zadorma'
+    == slim :'services/yandex'
+    == slim :'services/google'

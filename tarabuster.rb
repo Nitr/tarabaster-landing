@@ -1,10 +1,34 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'slim'
 require 'mailgun'
 
-
 get '/' do
-  erb :index
+  slim :bugs
+end
+get '/ants(.:format)?' do
+  slim :ants
+end
+get '/bugs(.:format)?' do
+  slim :bugs
+end
+get '/cocroaches(.:format)?' do
+  slim :cocroaches
+end
+get '/moles(.:format)?' do
+  slim :moles
+end
+get '/mosquitos(.:format)?' do
+  slim :mosquitos
+end
+get '/rats(.:format)?' do
+  slim :rats
+end
+get '/rodents(.:format)?' do
+  slim :rodents
+end
+get '/ticks(.:format)?' do
+  slim :ticks
 end
 
 post '/order' do

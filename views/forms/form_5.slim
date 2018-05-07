@@ -1,0 +1,27 @@
+/! форма в разделе Бытовки
+#cabins_form.modal.fade.linemodal aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content.formline formname=("Кнопка с заманухой")
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  ×
+        h4#myModalLabel.modal-title.text-center Оставьте контактные данные
+      .modal-body
+        p
+          | Мы перезвоним, уточним детали заказа и договоримся насчёт даты и времени.
+        .row
+          .col-md-10.col-md-offset-1
+            .form-group
+              input.form-control.inputline linename="Ф.И.О" linereq="1" name="name" placeholder=("Как к вам обращаться?") type="text" /
+            .form-group
+              input.form-control.inputline linename="Телефон" linereq="1" name="phone" placeholder="Телефон" type="text" /
+        div
+          p
+            small
+              | Уничтожение насекомых — комплексная процедура.
+              | Сложность зависит от площади и возраста жилища, отделки, видов мебели, наличия детей и домашних животных.
+              | Мы проконсультируем и ответим на вопросы, не переживайте.
+              | Работаем каждый день c 8:00 до 20:00 и перезвоним в рабочее время.
+      .modal-footer
+        button.btn.btn-lg.linebutton onsubmit=("yaCounter37539440.reachGoal('send_request'); return true;") type="button"  Отправить заявку
+/! /форма в разделе Бытовки

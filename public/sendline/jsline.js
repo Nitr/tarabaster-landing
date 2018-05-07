@@ -85,7 +85,7 @@ $( document ).ready(function() {
         });
 
         if (errorlines == 0) {
-            $.post( "order", lineobj, function(data) {
+            $.post( "/order", lineobj, function(data) {
                 try {
                     var response=jQuery.parseJSON(data);
                     //console.log (response);
@@ -107,8 +107,5 @@ $( document ).ready(function() {
                 showdialog(textlabels['error'], 1);
             });
         }
-
     });
-
-
 });

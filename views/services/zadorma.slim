@@ -1,0 +1,14 @@
+/! Zadarma widget
+javascript:
+  var ZCallbackWidgetLinkId  = 'f848015200f4ae5f07c2fc432de7e70c';
+  var ZCallbackWidgetDomain  = 'my.zadarma.com';
+  (function(){
+     var lt = document.createElement('script');
+     lt.type ='text/javascript';
+     lt.charset = 'utf-8';
+     lt.async = true;
+     lt.src = 'https://' + ZCallbackWidgetDomain + '/callbackWidget/js/main.min.js';
+     var sc = document.getElementsByTagName('script')[0];
+     if (sc) sc.parentNode.insertBefore(lt, sc);
+     else document.documentElement.firstChild.appendChild(lt);
+  })();
