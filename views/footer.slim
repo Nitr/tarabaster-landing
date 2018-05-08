@@ -8,8 +8,10 @@ footer.main-footer
         .footer-phone
           i.fa.fa-phone.fa-fw aria-hidden="true"
           strong
-            a href="tel:+78005511706" onclick=("yaCounter37539440.reachGoal('phone'); return true;")  8 800 551-17-06
+            a href="tel:#{settings.phone_number_7}" onclick=("yaCounter37539440.reachGoal('phone'); return true;")
+              = settings.phone_number_8
         .footer-mail
           i.fa.fa-envelope.fa-fw aria-hidden="true"
-          a href="mailto:info@tarabuster.ru" onclick=("yaCounter37539440.reachGoal('e_mail'); return true;")  info@tarabuster.ru
+          a href="mailto:info@tarabuster.ru" onclick=("yaCounter37539440.reachGoal('e_mail'); return true;")
+            = settings.info_email
         div Рабочее время: c 8:00 до 20:00 каждый день

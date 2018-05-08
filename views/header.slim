@@ -2,11 +2,13 @@
   .container
     .header-phone
       i.fa.fa-phone.fa-fw aria-hidden="true"
-      a.nolink href="tel:+78005511706"  8 800 551-17-06
+      a.nolink href="tel:#{settings.phone_number_7}"
+       = settings.phone_number_8
       span звонок по России бесплатный
     .header-mail
       i.fa.fa-envelope.fa-fw aria-hidden="true"
-      a.nolink href="mailto:info@tarabuster.ru" onclick=("yaCounter37539440.reachGoal('e_mail'); return true;")  info@tarabuster.ru
+      a.nolink href="mailto:#{settings.info_email}" onclick=("yaCounter37539440.reachGoal('e_mail'); return true;")
+       = settings.info_email
 nav#main-nav.navbar.navbar-fixed-top role="navigation"
   .container
     .navbar-header
@@ -20,7 +22,8 @@ nav#main-nav.navbar.navbar-fixed-top role="navigation"
       #left-phone.left-phone
         nobr
           i.fa.fa-phone.fa-fw aria-hidden="true"
-          a.nolink href="tel:+78005511706" onclick=("yaCounter37539440.reachGoal('phone'); return true;")  8 800 551-17-06
+          a.nolink href="tel:#{settings.phone_number_7}" onclick=("yaCounter37539440.reachGoal('phone'); return true;")
+            = settings.phone_number_8
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul#top-menu.nav.navbar-nav
         li

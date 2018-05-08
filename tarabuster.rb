@@ -3,6 +3,10 @@ require 'sinatra/reloader' if development?
 require 'slim'
 require 'mailgun'
 
+set :phone_number_8, '8 800 551-17-06'
+set :phone_number_7, '+78005511706'
+set :info_email, 'info@tarabuster.ru'
+
 get '/' do
   slim :bugs
 end
@@ -32,7 +36,7 @@ get '/ticks(.:format)?' do
 end
 
 post '/order' do
-  mg_client = Mailgun::Client.new 'key-34f2060ddee3b2f97545b4b1abcb7229'
+  mg_client = Mailgun::Client.new ENV.fetch('mailgun_key')
 
   text = params[:lines].values.map{|line| "#{line[:name]}: #{line[:value]}" }.join("\n\n")
   message_params =  {

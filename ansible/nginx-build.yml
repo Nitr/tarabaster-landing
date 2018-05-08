@@ -10,7 +10,7 @@
       private: no
   tasks:
     - git:
-        repo: 'git@github.com:Nitr/tarabaster-lending.git'
+        repo: 'git@github.com:Nitr/tarabaster-landing.git'
         dest: "{{ tarabuster_build_dest }}"
         version: "{{ tarabuster_image_tag }}"
       become: yes
